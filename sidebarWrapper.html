@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="jquery-3.1.0.min.js"></script>
+    </head>
+    <style>
+        #sideCont{
+            position:fixed;
+        }
+        #btnContainer{
+            position:absolute;
+            z-index: 1001;
+        }
+        #toggleBtn{
+            position:relative;
+            padding:10px;
+            background-color:rgba(0,0,0,0.4);
+            display: inline-block;
+            border-radius: 5px;
+            min-height: 30px;
+            min-width: 30px;
+            transition:background-color 0.2s;
+        }
+        #toggleBtn:hover{
+            background-color:rgba(0,0,0,0.7);
+        }
+        #toggleBtn.cancel{
+            background-color:rgba(255,255,255,0.8);
+            transition:background-color 0.2s;
+        }
+        .btnLine{
+            margin:2px auto;
+            height:2px;
+            width:30px;
+            background-color:white;
+            padding:2px;
+        }
+        .btnLine.cancel{
+            background-color:black;
+        }
+        #btnL1{
+            position:static;
+            transition: transform 0.5s, top 0.5s, position 0.5s;
+            transform:rotate(0deg);
+        }
+        #btnL3{
+            position:static;
+            transition: transform 0.5s, top 0.5s, position 0.5s;
+            transform:rotate(0deg);
+        }
+        #btnL1.rotate1{
+            top:50%;
+            background-color:black;
+            position: absolute;
+            transition: transform 0.5s, top 0.5s, position 0.5s, background-color 0.1s;
+            transform:rotate(45deg);
+        }
+        #btnL2.hidden{
+            visibility:hidden;
+            transition:visibility 0.1s;
+        }
+        #btnL3.rotate3{
+            top:50%;
+            background-color:black;
+            position: absolute;
+            transition: transform 0.5s, top 0.5s, position 0.5s, background-color 0.1s;
+            transform:rotate(135deg);
+        }
+        #sidebar{
+            position:fixed;
+            background-color: #222;
+            color:white;
+            top:0;
+            height:100%;
+            width:150px;
+            left:0;
+            margin-left:-150px;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: left 0.5s ease 0s;
+        }
+        #sidebar.active{
+            left:150px;
+            transition: left 0.5s ease 0s;
+        }
+        #sideNav{
+            position:absolute;
+            top:100px;
+            margin: 0;
+            padding: 10px;
+            list-style: none;
+        }
+        li{
+            margin:10px auto;
+        }
+    </style>
+    <body>
+        <div id="sideCont">
+        <div id="btnContainer">
+            <div id="toggleBtn">
+                <div id="btnL1" class="btnLine"> </div>
+                <div id="btnL2" class="btnLine"> </div>
+                <div id="btnL3" class="btnLine"> </div>
+            </div>
+        </div>
+        <nav id="sidebar">
+            <ul id="sideNav">
+                <li>Home</li>
+                <li>About Me</li>
+                <li>Projects</li>
+                <li>Contact Me</li>
+            </ul>
+        </nav>
+        </div>
+        <section id="open">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque commodo enim et nisl gravida molestie. Nulla elementum ac ex ac dictum. Quisque posuere, est ut egestas auctor, ex ipsum ornare massa, non tempus felis nibh ut tortor. Curabitur vestibulum justo ac turpis egestas, ut rhoncus dolor varius. Nunc non interdum nisl. Phasellus ut gravida erat. Nulla facilisi. Integer eu condimentum turpis. Praesent vitae felis viverra, placerat velit a, luctus sapien. Maecenas aliquam molestie augue, non maximus sapien sollicitudin vel. In ornare, ipsum a pulvinar euismod, eros mauris faucibus nisi, bibendum pretium lacus nibh ac lacus. Ut efficitur euismod libero. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+        <p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc at maximus arcu. Aenean hendrerit volutpat leo eget condimentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus vitae facilisis justo. Aenean bibendum accumsan mi porta iaculis. Sed ullamcorper posuere sapien vel tincidunt. Nunc quis vulputate ante, eu tincidunt leo. Integer pellentesque, nulla ut facilisis feugiat, mi leo tincidunt sem, eget laoreet enim turpis vel nisl. Sed et nulla ultricies, pretium mi at, malesuada dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus, urna nec molestie viverra, justo quam viverra urna, ut porta ipsum tortor ac tortor.</p>
+
+        Donec vel tortor sed nunc posuere lacinia ac nec massa. Integer tempor aliquet venenatis. Nulla in est eu enim bibendum pellentesque. Aliquam nisl urna, posuere ut tortor vitae, hendrerit maximus turpis. Quisque luctus est sit amet turpis hendrerit, eget suscipit orci porttitor. Quisque sollicitudin semper lacinia. Morbi hendrerit nisl et sapien scelerisque, sit amet iaculis nisi tristique. Sed ultrices sollicitudin eleifend. Nulla gravida mollis ex, a sollicitudin mauris mollis eu. Phasellus non sollicitudin lectus. Vestibulum vel finibus metus, eget varius dolor. Suspendisse tempor arcu non metus venenatis lacinia. Pellentesque tincidunt orci at lorem auctor, nec efficitur dolor tempor. Suspendisse maximus neque eu mauris accumsan vulputate. Duis fringilla ultricies sapien.
+
+        Morbi ut nunc vestibulum, congue enim ut, imperdiet nulla. Nulla non eleifend tortor. Ut maximus, justo a accumsan vestibulum, nunc dui laoreet nibh, in imperdiet odio elit interdum arcu. Pellentesque justo est, gravida et neque nec, pellentesque lobortis odio. Pellentesque odio massa, feugiat at turpis nec, porta malesuada orci. Praesent lacinia metus vitae volutpat semper. Nam est nisl, finibus a nibh et, auctor mattis neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed pulvinar malesuada dui. Sed sed ligula id nulla tincidunt sodales ut at quam. Nullam rhoncus rutrum est, vel iaculis lectus lobortis et. In ultricies malesuada ligula, in semper est fringilla et. Nunc porta elit sit amet vestibulum laoreet. In nec fermentum mi, ut dictum diam.</p></section>
+
+        <section id="one" ><p id="para" class="disappear">Aenean at dignissim erat. Mauris ac dignissim quam. Nam lacus est, aliquet ac iaculis vel, molestie eu enim. Aenean feugiat nec arcu ut vestibulum. Sed vitae lorem lacus. Nulla sed ante et ipsum iaculis gravida at malesuada sem. Proin eu turpis in dui tempus dictum. Sed fermentum felis sit amet felis tempor, vitae finibus lectus lacinia. Fusce eget suscipit velit. Nulla facilisi. Sed consequat venenatis convallis. Donec eget nibh sapien. Mauris quis cursus lectus, nec dignissim libero. Morbi condimentum nisl sed elit iaculis, ac malesuada ligula varius. Curabitur blandit elementum diam, luctus faucibus lectus placerat vel.
+
+        Donec et lacinia erat. Mauris vel nibh ac quam accumsan vestibulum. Duis sodales, metus et sodales feugiat, metus turpis accumsan augue, in pellentesque massa ante vel arcu. Donec     sagittis arcu quis velit tristique, ut commodo tellus dignissim. Phasellus nibh urna, rhoncus varius mauris et, auctor aliquet nisl. Integer erat odio, feugiat nec dui et, convallis malesuada nulla. Duis molestie, diam a ultrices accumsan, dui magna tincidunt magna, et vulputate dui leo a mi. Aliquam et justo urna. Nam massa libero, faucibus nec ex eget, ultricies eleifend ligula. Suspendisse sed velit ut felis semper volutpat. Praesent congue, tellus in euismod ultrices, diam dolor ultricies sapien, ut auctor sapien felis aliquam magna. Aliquam nec arcu elit.
+
+        Pellentesque ac nunc eu justo cursus viverra. Fusce commodo interdum ultricies. Suspendisse suscipit consectetur turpis, nec pharetra enim pharetra vel. Nam aliquet blandit nulla quis feugiat. Donec congue metus at tincidunt rhoncus. Quisque eu ipsum hendrerit, vestibulum felis in, imperdiet quam. Donec in pellentesque tellus. Nam vel enim ac augue tincidunt elementum congue sit amet risus. Vivamus vestibulum et tellus non pulvinar. Aenean quis nulla tincidunt, ornare magna egestas, fringilla mauris. Aliquam leo est, efficitur ac maximus non, vehicula a enim.</p>
+    </section>
+        <script>
+            $(document).ready(function(){
+                $("#toggleBtn").mouseenter(function(){
+                    $(".btnLine").animate({margin:"4px auto"});
+                });
+                $("#toggleBtn").mouseleave(function(){
+                    $(".btnLine").animate({margin:"2px auto"});
+                });
+                $("#toggleBtn").click(function(){
+                    $("#sidebar").toggleClass("active");
+                    $("#btnL1").toggleClass("rotate1");
+                    $("#btnL2").toggleClass("hidden");
+                    $("#btnL3").toggleClass("rotate3");
+                    $("#toggleBtn").toggleClass("cancel");
+                });
+            })
+        </script>
+    </body>
+    
+
+</html>
